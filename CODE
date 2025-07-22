@@ -1,0 +1,35 @@
+#include <reg51.h>  // Include header file for 8051
+
+// Define pin masks for the LEDs
+#define RED_LED    0x01  // P1.0
+#define YELLOW_LED 0x02  // P1.1
+#define GREEN_LED  0x04  // P1.2
+
+// Function prototypes
+void delay_ms(unsigned int ms);
+
+void main() {
+    while (1) {
+        // Red light ON, others OFF
+        P1 = RED_LED;
+        delay_ms(5000);  // 5 seconds delay
+
+        // Yellow light ON, others OFF
+        P1 = YELLOW_LED;
+        delay_ms(2000);  // 2 seconds delay
+
+        // Green light ON, others OFF
+        P1 = GREEN_LED;
+        delay_ms(5000);  // 5 seconds delay
+    }
+}
+
+// Delay function (approximation)
+void delay_ms(unsigned int ms) {
+    unsigned int i, j;
+    for (i = 0; i < ms; i++) {
+        for (j = 0; j < 1275; j++) {
+            // Empty loop for delay
+        }
+    }
+}
